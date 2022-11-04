@@ -18,9 +18,9 @@ LIBFT_LIB	=	$(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 
 PRINTF_LIB	=	$(addprefix $(PRINTF_PATH), $(PRINTF_FILE))
 
-MLX_FLAG	=	-framework OpenGL -framework AppKit
+MLX_FLAG	=	-lXext -lX11
 
-MLX_PATH	=	./mlx-mac/
+MLX_PATH	=	./mlx/
 
 MLX_LIB		=	$(addprefix $(MLX_PATH), $(MLX_FILE))
 
@@ -53,7 +53,7 @@ lib:
 	@make -C $(PRINTF_PATH)
 
 mlx:
-	@make -sC $(MLX_PATH)
+	@make -C mlx
 
 $(NAME): lib mlx $(OBJ)
 	$(CC) $(OBJ) $(LIBFT_LIB) $(PRINTF_LIB) $(MLX_EX) -o $(NAME)
