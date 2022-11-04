@@ -50,15 +50,15 @@ int	end(t_data *data)
 
 int	key_press(int keysym, t_data *data)
 {
-	if (keysym == 53)
+	if (keysym == 9)
 		end(data);
-	if (keysym == 13 || keysym == 126)
+	if (keysym == 25 || keysym == 111)
 		render_top(data);
-	if (keysym == 2 || keysym == 124)
+	if (keysym == 40 || keysym == 114)
 		render_right(data);
-	if (keysym == 0 || keysym == 123)
+	if (keysym == 38 || keysym == 113)
 		render_left(data);
-	if (keysym == 1 || keysym == 125)
+	if (keysym == 39 || keysym == 116)
 		render_down(data);
 	return (0);
 }
