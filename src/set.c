@@ -16,11 +16,11 @@ void	set_img(t_data *data)
 {
 	data->img.height = 40;
 	data->img.width = 40;
-	data->img.floor = "./texture/sand.xpm";
-	data->img.wall = "./texture/wall_2.xpm";
-	data->img.collect = "./texture/gas.xpm";
-	data->img.player = "./texture/player.xpm";
-	data->img.exit = "./texture/helicopter.xpm";
+	data->img.floor = "./texture/floor_texture.xpm";
+	data->img.wall = "./texture/wall.xpm";
+	data->img.collect = "./texture/collectible_texture.xpm";
+	data->img.player = "./texture/mario_player.xpm";
+	data->img.exit = "./texture/exit_texture.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr, data->img.wall,
 			&(data->img.width), &(data->img.height));
 	data->img.img_floor = mlx_xpm_file_to_image(data->mlx_ptr, data->img.floor,
