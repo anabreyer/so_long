@@ -1,25 +1,71 @@
-#include "../includes/so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaduan-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 15:57:31 by aaduan-b          #+#    #+#             */
+/*   Updated: 2022/11/14 15:57:33 by aaduan-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_same_char(char *str)
+#include "../inc/so_long.h"
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	int		i;
-	char	buff;
+	int	i;
 
 	i = 0;
-	buff = '1';
-	if (str == NULL)
-		return (-1);
-	while (str[i])
+	while (src[i] != '\0')
 	{
-		if (str[i] != buff && str[i] != '\n')
-			return (0);
+		dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	return (dest);
 }
 
-void	*ft_error(char *str)
+void	ft_putchar(char c)
 {
-	write(2, str, ft_strlen(str));
-	return (0);
+	write (1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	ft_putchar(str[i]);
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb < 0)
+	{
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
+}
+
+int	numberblank(char *str)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] == '\t' || str[index] == '\r'
+		|| str[index] == '\v' || str[index] == ' ')
+		index++;
+	return (index);
 }
